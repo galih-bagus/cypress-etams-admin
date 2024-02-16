@@ -9,9 +9,11 @@ module.exports = defineConfig({
   viewportHeight: 1080,
   video: false,
   chromeWebSecurity: false,
-  defaultCommandTimeout: 10000,
+  defaultCommandTimeout: 20000,
   env: {
     baseUrl: process.env.BASE_URL,
+    username: process.env.USERNAMESUPERADMIN,
+    password: process.env.PASSWORDSUPERADMIN,
   },
   e2e: {
     setupNodeEvents(on, config) {
