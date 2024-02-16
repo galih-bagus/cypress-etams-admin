@@ -11,8 +11,8 @@ beforeEach(() => {
 });
 describe("Test Case Login", () => {
   it("Login with valid data", () => {
-    element.fillFilledXpath(loginPage.usernameField, data.VALID_LOGIN.username);
-    element.fillFilledXpath(loginPage.passwordField, data.VALID_LOGIN.password);
+    element.fillFilledXpath(loginPage.usernameField, Cypress.env("username"));
+    element.fillFilledXpath(loginPage.passwordField, Cypress.env("password"));
     element.clickXpath(loginPage.buttonLogin);
     assert.shouldExistXpath(loginPage.dashboardPage);
     assert.shouldContainTextXpath(loginPage.dashboardPage, "Dashboard");

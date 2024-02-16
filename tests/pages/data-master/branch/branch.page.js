@@ -1,0 +1,10 @@
+export const dataMasterMenu = "//a[@data-url='data-master']";
+export const branchMenu = "//a[@data-child='kantor-cabang']";
+export const branchList = "//h4[contains(text(), Cabang)]";
+export const branchCreateButton = "//a[contains(text(), 'Tambah Cabang')]";
+export const nameField = "//input[@placeholder='Masukkan Nama Cabang']";
+export const urlField = "//input[@placeholder='Masukkan URL Website']";
+export const buttonSave = "//button[normalize-space()='Save']";
+export const alertMessage = "//div[@role='alert']";
+export const searchField = "//input[@placeholder='Search data here...']";
+export const dataSearch = "//tbody//tr/td[2]";

@@ -9,6 +9,7 @@ export function getXpath(selector) {
 export function fillFilled(selector, value) {
   return cy.get(selector).type(value).should("have.value", value);
 }
+
 export function fillFilledXpath(selector, value) {
   return cy.xpath(selector).type(value).should("have.value", value);
 }
@@ -27,4 +28,8 @@ export function click(selector, ...args) {
 
 export function clickXpath(selector, ...args) {
   return cy.xpath(selector).click(...args);
+}
+
+export function fillFilledXpathSearch(selector, value) {
+  return cy.xpath(selector).type(value + "{enter}");
 }
