@@ -22,6 +22,12 @@ export function shouldExist(selector) {
   cy.get(selector).should("exist");
 }
 
+export function invoke(selector) {
+  cy.get(selector)
+    .invoke("prop", "validationMessage")
+    .should("equal", "Please fill out this field.");
+}
+
 export function shouldBeVisibleXpath(selector) {
   cy.xpath(selector).should("be.visible");
 }
@@ -44,4 +50,10 @@ export function shouldContainValueXpath(selector, value) {
 
 export function shouldExistXpath(selector) {
   cy.xpath(selector).should("exist");
+}
+
+export function invokeXpath(selector) {
+  cy.xpath(selector)
+    .invoke("prop", "validationMessage")
+    .should("equal", "Please fill out this field.");
 }
