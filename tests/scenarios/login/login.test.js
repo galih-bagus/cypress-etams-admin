@@ -38,12 +38,21 @@ describe("Test Case Login", () => {
     );
   });
 
-  it.only("Login without username", () => {
+  it("Login without username", () => {
     element.fillFilledXpath(
       loginPage.passwordField,
       data.INVALID_LOGIN.password,
     );
     element.clickXpath(loginPage.buttonLogin);
     assert.invokeXpath(loginPage.usernameField);
+  });
+
+  it("Login without password", () => {
+    element.fillFilledXpath(
+      loginPage.usernameField,
+      data.INVALID_LOGIN.username,
+    );
+    element.clickXpath(loginPage.buttonLogin);
+    assert.invokeXpath(loginPage.passwordField);
   });
 });
