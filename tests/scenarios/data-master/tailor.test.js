@@ -4,61 +4,58 @@ import * as element from "@helpers/element";
 import * as route from "@helpers/route";
 import * as func from "@helpers/function";
 import { ROUTES } from "@tests/const/routes";
-import * as page from "@tests/pages/data-master/branch/branch.page";
+import * as page from "@tests/pages/data-master/tailor/tailor.page";
 import * as assert from "@helpers/assert";
-import * as data from "@tests/data/data-master/branch/branch.data";
+import * as data from "@tests/data/data-master/tailor/tailor.data";
 beforeEach(() => {
   route.visit(ROUTES.login);
   func.login(Cypress.env("username"), Cypress.env("password"));
 });
 describe("Test Case Data Master", () => {
-  describe("Test Case Branch", () => {
+  describe("Test Case Tailor", () => {
     it("Show list data", () => {
       element.clickXpath(page.dataMasterMenu);
-      element.clickXpath(page.branchMenu);
-      assert.shouldContainTextXpath(page.branchList, "Cabang");
+      element.clickXpath(page.tailorMenu);
+      assert.shouldContainTextXpath(page.tailorList, "Penjahit");
     });
 
     it("Create data", () => {
       element.clickXpath(page.dataMasterMenu);
-      element.clickXpath(page.branchMenu);
-      element.clickXpath(page.branchCreateButton);
+      element.clickXpath(page.tailorMenu);
+      element.clickXpath(page.tailorCreateButton);
       element.fillFilledXpath(page.nameField, data.VALID_DATA.name);
-      element.fillFilledXpath(page.urlField, data.VALID_DATA.url);
       element.clickXpath(page.buttonSave);
       assert.shouldContainTextXpath(
         page.alertMessage,
-        "Kantor Cabang Berhasil Ditambahkan",
+        "Penjahit Berhasil Ditambahkan",
       );
     });
 
     it("Search data", () => {
       element.clickXpath(page.dataMasterMenu);
-      element.clickXpath(page.branchMenu);
+      element.clickXpath(page.tailorMenu);
       element.fillFilledXpathSearch(page.searchField, data.VALID_DATA.name);
       assert.shouldContainTextXpath(page.dataSearch, data.VALID_DATA.name);
     });
 
     it("Edit data", () => {
       element.clickXpath(page.dataMasterMenu);
-      element.clickXpath(page.branchMenu);
+      element.clickXpath(page.tailorMenu);
       element.fillFilledXpathSearch(page.searchField, data.VALID_DATA.name);
       cy.wait(500);
       element.clickXpath(page.buttonEdit);
       element.clearFilledXpath(page.nameField);
-      element.clearFilledXpath(page.urlField);
       element.fillFilledXpath(page.nameField, data.VALID_DATA.name + "update");
-      element.fillFilledXpath(page.urlField, data.VALID_DATA.url + "update");
       element.clickXpath(page.buttonSave);
       assert.shouldContainTextXpath(
         page.alertMessage,
-        "Kantor Cabang Berhasil Diperbarui",
+        "Penjahit Berhasil Diperbarui",
       );
     });
 
     it("Delete data", () => {
       element.clickXpath(page.dataMasterMenu);
-      element.clickXpath(page.branchMenu);
+      element.clickXpath(page.tailorMenu);
       element.fillFilledXpathSearch(
         page.searchField,
         data.VALID_DATA.name + "update",
@@ -68,7 +65,7 @@ describe("Test Case Data Master", () => {
       element.clickXpath(page.buttonConfirmDelate);
       assert.shouldContainTextXpath(
         page.alertMessage,
-        "Kantor Cabang Berhasil Dihapus",
+        "Penjahit Berhasil Dihapus",
       );
     });
   });
