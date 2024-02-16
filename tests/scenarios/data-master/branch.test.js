@@ -15,13 +15,13 @@ beforeEach(() => {
 });
 describe("Test Case Data Master", () => {
   describe("Test Case Branch", () => {
-    it.only("Show list data", () => {
+    it("Show list data", () => {
       element.clickXpath(page.dataMasterMenu);
       element.clickXpath(page.branchMenu);
       assert.shouldContainTextXpath(page.branchList, "Cabang");
     });
 
-    it.only("Create data", () => {
+    it("Create data", () => {
       element.clickXpath(page.dataMasterMenu);
       element.clickXpath(page.branchMenu);
       element.clickXpath(page.branchCreateButton);
@@ -34,11 +34,27 @@ describe("Test Case Data Master", () => {
       );
     });
 
-    it.only("Search data", () => {
+    it("Search data", () => {
       element.clickXpath(page.dataMasterMenu);
       element.clickXpath(page.branchMenu);
       element.fillFilledXpathSearch(page.searchField, data.VALID_DATA.name);
       assert.shouldContainTextXpath(page.dataSearch, data.VALID_DATA.name);
+    });
+
+    it("Edit data", () => {
+      element.clickXpath(page.dataMasterMenu);
+      element.clickXpath(page.branchMenu);
+      element.fillFilledXpathSearch(page.searchField, data.VALID_DATA.name);
+      element.clickXpath(page.buttonEdit);
+      element.clearFilledXpath(page.nameField);
+      element.clearFilledXpath(page.urlField);
+      element.fillFilledXpath(page.nameField, data.VALID_DATA.name + "update");
+      element.fillFilledXpath(page.urlField, data.VALID_DATA.url + "update");
+      element.clickXpath(page.buttonSave);
+      assert.shouldContainTextXpath(
+        page.alertMessage,
+        "Kantor Cabang Berhasil Diperbarui",
+      );
     });
   });
 });

@@ -33,3 +33,15 @@ export function clickXpath(selector, ...args) {
 export function fillFilledXpathSearch(selector, value) {
   return cy.xpath(selector).type(value + "{enter}");
 }
+
+export function fillFilledSearch(selector, value) {
+  return cy.get(selector).type(value + "{enter}");
+}
+
+export function clearFilledXpath(selector) {
+  return cy.xpath(selector).clear();
+}
+
+export function clearFilled(selector) {
+  return cy.get(selector).clear();
+}
