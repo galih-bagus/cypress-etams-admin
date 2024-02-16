@@ -12,8 +12,16 @@ dotenv.config();
 beforeEach(() => {
   route.visit(ROUTES.login);
 });
-describe("Login test", () => {
-  it("Login", () => {
+describe("Test Case Login", () => {
+  it("Login with valid data", () => {
+    element.fillFilledXpath(loginPage.usernameField, data.VALID_LOGIN.username);
+    element.fillFilledXpath(loginPage.passwordField, data.VALID_LOGIN.password);
+    element.clickXpath(loginPage.buttonLogin);
+    assert.shouldExistXpath(loginPage.dashboardPage);
+    assert.shouldContainTextXpath(loginPage.dashboardPage, "Dashboard");
+  });
+
+  it("Login with invalid data", () => {
     element.fillFilledXpath(
       loginPage.usernameField,
       data.INVALID_LOGIN.username,
@@ -28,5 +36,14 @@ describe("Login test", () => {
       loginPage.errorMessage,
       "Identitas tersebut tidak cocok dengan data kami.",
     );
+  });
+
+  it.only("Login without username", () => {
+    element.fillFilledXpath(
+      loginPage.passwordField,
+      data.INVALID_LOGIN.password,
+    );
+    element.clickXpath(loginPage.buttonLogin);
+    assert.invokeXpath(loginPage.usernameField);
   });
 });
