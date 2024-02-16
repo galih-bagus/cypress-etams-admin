@@ -6,9 +6,6 @@ import { ROUTES } from "@tests/const/routes";
 import * as loginPage from "@tests/pages/login/login.page";
 import * as assert from "@helpers/assert";
 import * as data from "@tests/data/login/login.data";
-const dotenv = require("dotenv");
-// import dotenv from "dotenv";
-dotenv.config();
 beforeEach(() => {
   route.visit(ROUTES.login);
 });
