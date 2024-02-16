@@ -1,0 +1,12 @@
+export const dataMasterMenu = "//a[@data-url='data-master']";
+export const tailorMenu = "//a[@data-child='penjahit']";
+export const tailorList = "//h4[contains(text(), Penjahit)]";
+export const tailorCreateButton = "//a[contains(text(), 'Tambah Penjahit')]";
+export const nameField = "//input[@placeholder='Masukkan Nama Penjahit']";
+export const buttonSave = "//button[normalize-space()='Save']";
+export const alertMessage = "//div[@role='alert']";
+export const searchField = "//input[@placeholder='Search data here...']";
+export const dataSearch = "//tbody//tr/td[2]";
+export const buttonEdit = "//tbody//tr/td[3]//a[1]";
+export const buttonDelete = "//tbody//tr/td[3]//a[2]";
+export const buttonConfirmDelate = "//button[contains(text(),'Hapus')]";
