@@ -45,6 +45,7 @@ describe("Test Case Data Master", () => {
       element.clickXpath(page.dataMasterMenu);
       element.clickXpath(page.branchMenu);
       element.fillFilledXpathSearch(page.searchField, data.VALID_DATA.name);
+      cy.wait(500);
       element.clickXpath(page.buttonEdit);
       element.clearFilledXpath(page.nameField);
       element.clearFilledXpath(page.urlField);
@@ -54,6 +55,22 @@ describe("Test Case Data Master", () => {
       assert.shouldContainTextXpath(
         page.alertMessage,
         "Kantor Cabang Berhasil Diperbarui",
+      );
+    });
+
+    it("Delete data", () => {
+      element.clickXpath(page.dataMasterMenu);
+      element.clickXpath(page.branchMenu);
+      element.fillFilledXpathSearch(
+        page.searchField,
+        data.VALID_DATA.name + "update",
+      );
+      cy.wait(500);
+      element.clickXpath(page.buttonDelete);
+      element.clickXpath(page.buttonConfirmDelate);
+      assert.shouldContainTextXpath(
+        page.alertMessage,
+        "Kantor Cabang Berhasil Dihapus",
       );
     });
   });
