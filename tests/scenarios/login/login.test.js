@@ -55,4 +55,9 @@ describe("Test Case Login", () => {
     element.clickXpath(loginPage.buttonLogin);
     assert.invokeXpath(loginPage.passwordField);
   });
+
+  it("Login without username and password", () => {
+    element.clickXpath(loginPage.buttonLogin);
+    assert.invokeXpath(loginPage.usernameField);
+  });
 });
