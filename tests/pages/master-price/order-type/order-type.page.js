@@ -1,0 +1,11 @@
+export const dataMasterPriceMenu = "//a[@data-url='master-biaya']";
+export const orderTypeMenu = "//a[@data-url='jenis-order']";
+export const orderTypeList = "//h4[contains(text(), 'Jenis Order')]";
+export const codeField = "//input[@placeholder='Masukkan Code Jenis Order']";
+export const nameField = "//input[@placeholder='Masukkan Nama Jenis Order']";
+export const priceField = "//input[@placeholder='Masukkan Harga Jenis Order']";
+export const buttonSave = "//button[normalize-space()='Save']";
+export const alertMessage = "//div[@role='alert']";
+export const searchField = "//input[@placeholder='Search data here...']";
+export const dataSearch = "//tbody//tr/td[2]";
+export const buttonEdit = "//tbody//tr[1]/td[5]//a[1]";
