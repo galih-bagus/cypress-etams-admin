@@ -45,3 +45,11 @@ export function clearFilledXpath(selector) {
 export function clearFilled(selector) {
   return cy.get(selector).clear();
 }
+
+export function countElementXpath(selector,countSelector) {
+  return cy.xpath(selector).its('length');
+}
+
+export function createLog(message) {
+  return cy.log(message);
+}

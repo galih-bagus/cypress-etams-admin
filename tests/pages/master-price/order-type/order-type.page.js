@@ -8,4 +8,5 @@ export const buttonSave = "//button[normalize-space()='Save']";
 export const alertMessage = "//div[@role='alert']";
 export const searchField = "//input[@placeholder='Search data here...']";
 export const dataSearch = "//tbody//tr/td[2]";
-export const buttonEdit = "//tbody//tr[1]/td[5]//a[1]";
+export const buttonEdit = (id) => `//tbody//tr[${id}]/td[5]//a[1]`;
+export const countElement = "//tbody//tr";

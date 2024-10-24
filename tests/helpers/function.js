@@ -6,3 +6,7 @@ export function login(username, password) {
   element.fillFilledXpath(loginPage.passwordField, password);
   element.clickXpath(loginPage.buttonLogin);
 }
+
+export function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
