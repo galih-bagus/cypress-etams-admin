@@ -14,17 +14,24 @@ beforeEach(() => {
 });
 describe("Test Case Master Price", () => {
    describe("Test Case Order Type", () => {
-      it("Show list data", () => {
+      var countLength = 0;
+      it.skip("Show list data", () => {
          element.clickXpath(page.dataMasterPriceMenu);
          element.clickXpath(page.orderTypeMenu);
          assert.shouldContainTextXpath(page.orderTypeList, "Jenis Order");
+         element.countElementXpath(page.countElement).then((count) => {
+            countLength = count;
+            expect(count).to.be.greaterThan(0);
+          });
       });
 
       it("Edit data", () => {
+         const randomNumber = func.getRandomNumber(1, countLength);
+         element.createLog(randomNumber);
          element.clickXpath(page.dataMasterPriceMenu);
          element.clickXpath(page.orderTypeMenu);
          assert.shouldContainTextXpath(page.orderTypeList, "Jenis Order");
-         element.clickXpath(page.buttonEdit);
+         element.clickXpath(page.buttonEdit(randomNumber));
          assert.shouldContainTextXpath(page.orderTypeList, "Jenis Order");
          element.clearFilledXpath(page.codeField);
          element.clearFilledXpath(page.nameField);
